@@ -17,3 +17,23 @@
   border-radius: 5px;
   box-shadow: 0px 0px 3px 0px black;
 }
+
+@media screen and (min-width: 700px) {
+  .profile-img{
+    width: 30vw;
+  } 
+
+  .know-more-btn{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .profile-img{
+    width: 20vw;
+  } 
+
+  .know-more-btn{
+    width: 20%;
+  }
+}
