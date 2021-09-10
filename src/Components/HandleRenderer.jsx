@@ -79,7 +79,7 @@ function HandleRenderer(props) {
     }
 
   } else if (data.length === 0){
-    elements = <h2>No hay items</h2>
+    elements = <h2>No items!</h2>
   }
 
   

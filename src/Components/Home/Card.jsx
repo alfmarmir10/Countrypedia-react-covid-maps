@@ -13,7 +13,7 @@ function Card(props) {
       <Link className="width-80percent border-radious-5px margin-top-sm bg-yellow font-size-md font-weight-bold btn-details" to={{
           pathname: `/Details/${name}`
         }}
-      >Detalles</Link>
+      >Details</Link>
     </div>
   )
 }
