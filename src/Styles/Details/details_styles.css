@@ -1,0 +1,71 @@
+.details-container{
+  height: 84vh;
+}
+
+.tryAgain-button{
+  padding: 2vh 0;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px 0px black;
+}
+
+.notFound-img{
+  width: 30vw;
+}
+
+.detailsCard-main-container{
+  max-width: 700px;
+  max-height: 60vh;
+}
+
+.info-container{
+  width: 80%;
+}
+
+.covid-info-container{
+  border: 1px solid black;
+  box-shadow: 0px 0px 5px 1px black;
+  border-radius: 5px;
+}
+
+.covid-info-title{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1vh 0;
+}
+
+.lastUpdate-date{
+  font-size: 0.8rem;
+}
+
+.detailsCard-img{
+  width: 80vw;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 2px black;
+  border: 1px solid black;
+}
+
+.covid-item{
+  margin: 2vw 2vw;
+}
+
+.back-container{
+  position: absolute;
+  top: 3vh;
+  left: 5vw;
+}
+
+.map-flag{
+  width: 6vw;
+  height: 6vw;
+}
+
+@media screen and (min-width: 700px) {
+  .detailsCard-img{
+    width: 40%;
+  }
+
+  .info-container{
+    width: 60%;
+  }
+}

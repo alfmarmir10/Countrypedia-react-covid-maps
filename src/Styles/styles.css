@@ -1,0 +1,56 @@
+.navbar-top{
+  height: 16vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-top-icon{
+  width: 6vh;
+  height: 6vh;
+}
+
+.navbar-top-title{
+    font-size: 1rem;
+  }
+
+.navLinks-container ul{
+  height: 5vh;
+  background-color: crimson;
+}
+
+.navLinks-container ul li{
+  display: inline-block;
+}
+
+.navLinks-container ul li a{
+  text-decoration: none;
+  font-size: 1.7rem;
+  color: black;
+}
+
+.navLinks-container ul li a.active{
+  font-weight: bold;
+}
+
+.search-link{
+  display: inline-block;
+}
+
+.search-icon{
+  width: 3vw;
+  height: 3vw;
+  margin-left: 1vw;
+  vertical-align: baseline;
+}
+
+@media screen and (min-width: 700px){
+  .navLinks-container ul li a{
+    font-size: 2.5rem;
+  }
+
+  .navbar-top-title{
+    font-size: 1.5rem;
+  }
+}
