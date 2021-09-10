@@ -5,6 +5,8 @@ input{
 
 .search-input-container{
   height: 84vh;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .badge{

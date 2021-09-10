@@ -1,3 +1,7 @@
+.all-flags-container{
+  height: 80vh;
+}
+
 .card-img{
   width: 80%;
   border-radius: 5px;
@@ -26,5 +30,20 @@
   
   .btn-details{
     height: 8vh;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .all-flags-container{
+    height: 80vh;
+  }
+
+  .card-item{
+    width: 20vw;
+    height: 20vw;
+  }
+  
+  .btn-details{
+    height: 4vh;
   }
 }

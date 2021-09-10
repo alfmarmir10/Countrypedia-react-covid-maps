@@ -1,5 +1,4 @@
 import React, { button } from 'react';
-import { Link } from 'react-router-dom';
 import NotFoundImg from '../../Assets/Img/not-found.svg';
 import { useHistory } from 'react-router-dom';
 import '../../Styles/Details/details_styles.css';

@@ -6,7 +6,7 @@ import SearchIcon from '../Assets/Img/search.png';
 import { Link } from 'react-router-dom';
 
 function NavBarTop(props) {
-  const { home, search, info } = props;
+  const { home, search, about } = props;
   return (
     <div className='width-100percent bg-white navbar-top'>
       <img src={Icon} alt="Top Navbar Icon" className='navbar-top-icon'/>
@@ -21,7 +21,7 @@ function NavBarTop(props) {
             <img src={SearchIcon} alt="Search Icon" className="search-icon" />
           </li>
           <li>
-            <Link to="/Info" id="info_link" className={info ? info : ""}>Info</Link>
+            <Link to="/About" id="info_link" className={about ? about : ""}>About</Link>
           </li>
         </ul>
       </div>

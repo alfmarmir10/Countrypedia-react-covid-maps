@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Views/Home';
 import Search from './Views/Search';
-import Info from './Views/Info';
+import Info from './Views/About';
 import Details from './Views/Details';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
           <Route path="/Search" exact>
             <Search />
           </Route>
-          <Route path="/Info" exact>
+          <Route path="/About" exact>
             <Info />
           </Route>
           <Route path="/Details/:name" exact>

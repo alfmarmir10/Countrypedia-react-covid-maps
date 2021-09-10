@@ -53,4 +53,16 @@
   .navbar-top-title{
     font-size: 1.5rem;
   }
+
+  .search-icon{
+    vertical-align: sub;
+  }
+}
+
+@media screen and (min-width: 1000px){
+  .search-icon{
+    width: 1.5vw;
+    height: 1.5vw;
+    vertical-align: sub;
+  }
 }

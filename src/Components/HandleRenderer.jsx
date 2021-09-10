@@ -44,10 +44,10 @@ function HandleRenderer(props) {
   let elements;
   if(data.length > 0 && searching === 'all'){
 
-    const filterData = data.splice(0,10);
-    console.log(filterData);
-    elements = filterData.map((item) => {
-      return <Card name={item.name} url={item.flag} key={filterData.indexOf(item)}/>
+    // const filterData = data.splice(0,10);
+    // console.log(filterData);
+    elements = data.map((item) => {
+      return <Card name={item.name} url={item.flag} key={data.indexOf(item)}/>
     })
 
   } else if(data.length > 0 && searching === 'random_badges'){

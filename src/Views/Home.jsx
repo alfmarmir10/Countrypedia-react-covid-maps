@@ -7,7 +7,7 @@ function Home() {
   return (
     <div>
       <NavBarTop home="active"/>
-      <div className="flex-row-center flex-wrap margin-top-lg">
+      <div className="flex-row-center flex-wrap margin-top-sm overflow-y-auto all-flags-container">
         <HandleRenderer searching="all"/>
       </div>
     </div>
