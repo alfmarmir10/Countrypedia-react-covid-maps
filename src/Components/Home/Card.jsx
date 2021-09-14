@@ -7,14 +7,14 @@ function Card(props) {
   const { url, name, handleFetch } = props;
   const lastElementRef = useRef();
 
-  function handleScroll(){
-    if(handleFetch==='Yes' && lastElementRef.current.getBoundingClientRect().y <= window.innerHeight){
-      console.log("Se activó");
-    }
-  }
   useEffect(() => {
+    function handleScroll(){
+      if(handleFetch==='Yes' && lastElementRef.current.getBoundingClientRect().y <= window.innerHeight){
+        console.log("Se activó");
+      }
+    }
     handleScroll();
-  }, [])
+  }, [handleFetch])
 
   return (
     <div ref={lastElementRef} className="card card-item" onScroll={handleScroll}>
