@@ -44,15 +44,21 @@ function HandleRenderer(props) {
   let elements;
   if(data.length > 0 && searching === 'all'){
 
-    // const filterData = data.splice(0,10);
+    const filterData = data.splice(0,10);
     // console.log(filterData);
-    elements = data.map((item) => {
-      return <Card name={item.name} url={item.flag} key={data.indexOf(item)}/>
+    let i = -1;
+    elements = filterData.map((item) => {
+      i++;
+      if(i === filterData.length-1){
+        return <Card name={item.name} url={item.flag} key={filterData.indexOf(item)} handleFetch="Yes" />
+      } else {
+        return <Card name={item.name} url={item.flag} key={filterData.indexOf(item)} handleFetch="No"/>
+      }
     })
 
   } else if(data.length > 0 && searching === 'random_badges'){
 
-    console.log(badges);
+    // console.log(badges);
     try {
       elements = badges.map((item) => {
         return <Badge name={item.name} key={badges.indexOf(item)}/>

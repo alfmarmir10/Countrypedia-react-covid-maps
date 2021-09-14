@@ -278,6 +278,10 @@ body::-webkit-scrollbar {
     width: 80%
 }
 
+.width-95percent{
+    width: 95%
+}
+
 .width-25vw{
     width: 25vw;
 }
@@ -348,6 +352,10 @@ body::-webkit-scrollbar {
 
 .overflow-y-auto{
     overflow-y: auto;
+}
+
+.overflow-x-auto{
+    overflow-x: auto;
 }
 
 .white-space-nowrap{

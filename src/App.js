@@ -4,6 +4,7 @@ import Home from './Views/Home';
 import Search from './Views/Search';
 import Info from './Views/About';
 import Details from './Views/Details';
+import NotFound from './Components/NotFound';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Details/:name" exact>
             <Details />
           </Route>
+          <Route component={NotFound}/>
         </Switch>
       </Router>
     </div>

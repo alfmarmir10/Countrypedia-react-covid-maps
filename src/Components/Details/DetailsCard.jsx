@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Map from './Map';
 import Chart from './Chart';
+import Weather from './Weather';
 
 function DetailsCard(props) {
   const {info, covid} = props;
@@ -30,6 +31,8 @@ function DetailsCard(props) {
     }
   }, [covid, info.alpha3Code])
 
+  console.log(info);
+
   useEffect(() => {
     async function get_Covid_Stats () {
       const response = await fetch(URL_COVID_STATS, {
@@ -52,16 +55,17 @@ function DetailsCard(props) {
     }
   }, [info, URL_COVID_STATS])
 
-  console.log(info);
-
   return (
     <div className='flex-column-start detailsCard-main-container'>
-      <div className="flex-row-center flex-wrap">
+      <div className="flex-row-center flex-wrap width-100percent">
         <img src={info.flag} alt="Country Flag" className='detailsCard-img'/>
         <div className="info-container flex-column-center margin-top-sm">
           <p className="detailsCard-title font-weight-bold font-size-lg">{info.name}</p>
           <p className="detailsCard-subtitle font-size-md" name="detailsCard-subtitle">{info.capital}</p>
           <label htmlFor="detailsCard-subtitle" className="detailsCard-subtitle-label font-weight-bold">Capital</label>
+
+          <Weather latlng={info.latlng}/>
+
           <div className="covid-info-container flex-column-center margin-top-sm">
             <p className="width-100percent bg-crimson color-white text-align-center font-size-md font-weight-bold covid-info-title">Covid-19 review</p>
             <div className="covid-items-container flex-row-space-around">
@@ -80,21 +84,21 @@ function DetailsCard(props) {
             </div>
           </div>
             <p className="font-weight-thin margin-top-sm lastUpdate-date">{(covidLastUpdated === undefined) ? 0 : covidLastUpdated}</p>
+          {
+            covidStats!==undefined ? (
+              <Chart stats={covidStats}/>
+            ) : (
+              <div></div>
+            )
+          }
+          {
+            covidItem["geometry"]!==undefined ? (
+              <Map lat={covidItem["geometry"]["y"]} lng={covidItem["geometry"]["x"]} name={info.name} flag={info.flag}/>
+            ) : (
+              <div></div>
+            )
+          }
         </div>
-        {
-          covidStats!==undefined ? (
-            <Chart stats={covidStats}/>
-          ) : (
-            <div></div>
-          )
-        }
-        {
-          covidItem["geometry"]!==undefined ? (
-            <Map lat={covidItem["geometry"]["y"]} lng={covidItem["geometry"]["x"]} name={info.name} flag={info.flag}/>
-          ) : (
-            <div></div>
-          )
-        }
       </div>
     </div>
   )
