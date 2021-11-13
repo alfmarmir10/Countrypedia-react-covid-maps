@@ -9,7 +9,7 @@ function HandleRenderer(props) {
   const [data, setData] = useState([]);
   const [dataCovid, setDataCovid] = useState([]);
   const [badges, setBadges] = useState([]);
-  const URL = 'https://restcountries.eu/rest/v2/all';
+  const URL = 'https://restcountries.com/v3.1/all';
   const URL_COVID = 'https://services1.arcgis.com/0MSEUqKaxRlEPj5g/arcgis/rest/services/ncov_cases2_v1/FeatureServer/2/query?where=1%3D1&outFields=*&outSR=4326&f=json';
 
   if(data.length === 0){
@@ -18,9 +18,12 @@ function HandleRenderer(props) {
 
   async function fetchAPI(){
     let response = await fetch(URL);
-    setData(await response.json());
+    const log = await response.json();
+    setData(log);
     response = await fetch(URL_COVID);
-    setDataCovid(await response.json());
+    const log2 = await response.json();
+    console.log(log2);
+    setDataCovid(log2);
     
   }
 
@@ -33,7 +36,8 @@ function HandleRenderer(props) {
 
   useEffect(() => {
     const filterData = [];
-    for(let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++){
+      console.log(data);
       filterData.push(data[Math.floor(Math.random() * data.length)]);
     }
   
@@ -50,9 +54,9 @@ function HandleRenderer(props) {
     elements = filterData.map((item) => {
       i++;
       if(i === filterData.length-1){
-        return <Card name={item.name} url={item.flag} key={filterData.indexOf(item)} handleFetch="Yes" />
+        return <Card name={item.name} url={item.flags.svg} key={filterData.indexOf(item)} handleFetch="Yes" />
       } else {
-        return <Card name={item.name} url={item.flag} key={filterData.indexOf(item)} handleFetch="No"/>
+        return <Card name={item.name} url={item.flags.svg} key={filterData.indexOf(item)} handleFetch="No"/>
       }
     })
 
@@ -73,7 +77,7 @@ function HandleRenderer(props) {
     let countryInfoObj;
     let itemIndex = -1;
     for(let i = 0; i < data.length; i++){
-      if(data[i]['name'] === searching){
+      if(data[i]['name']['common'] === searching){
         itemIndex = i;
         countryInfoObj = data[i];
       }

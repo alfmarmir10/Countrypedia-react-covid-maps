@@ -9,13 +9,15 @@ function DetailsCard(props) {
   const [covidItem, setCovidItem] = useState([]);
   const [covidStats, setCovidStats] = useState([]);
 
-  const URL_COVID_STATS = `https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=${info.name}`;
+  const URL_COVID_STATS = `https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats?country=${info.name.common}`;
   
   useEffect(() => {
     function getCovidItem(){
       try {
+        console.log(covid);
+        console.log(info.cca3);
         for (let i = 0; i < covid.features.length; i++) {
-          if(covid.features[i]["attributes"]["ISO3"] === info.alpha3Code){
+          if(covid.features[i]["attributes"]["ISO3"] === info.cca3){
             setCovidItem(covid.features[i]);
             const date = new Date(covid.features[i].attributes.Last_Update);
             setCovidLastUpdated(date.toString());
@@ -29,9 +31,9 @@ function DetailsCard(props) {
     return () => {
       getCovidItem();
     }
-  }, [covid, info.alpha3Code])
+  }, [covid, info.cca3])
 
-  console.log(info);
+  // console.log(info);
 
   useEffect(() => {
     async function get_Covid_Stats () {
@@ -58,9 +60,9 @@ function DetailsCard(props) {
   return (
     <div className='flex-column-start detailsCard-main-container'>
       <div className="flex-row-center flex-wrap width-100percent">
-        <img src={info.flag} alt="Country Flag" className='detailsCard-img'/>
+        <img src={info.flags.svg} alt="Country Flag" className='detailsCard-img'/>
         <div className="info-container flex-column-center margin-top-sm">
-          <p className="detailsCard-title font-weight-bold font-size-lg">{info.name}</p>
+          <p className="detailsCard-title font-weight-bold font-size-lg">{info.name.common}</p>
           <p className="detailsCard-subtitle font-size-md" name="detailsCard-subtitle">{info.capital}</p>
           <label htmlFor="detailsCard-subtitle" className="detailsCard-subtitle-label font-weight-bold">Capital</label>
 
@@ -93,7 +95,7 @@ function DetailsCard(props) {
           }
           {
             covidItem["geometry"]!==undefined ? (
-              <Map lat={covidItem["geometry"]["y"]} lng={covidItem["geometry"]["x"]} name={info.name} flag={info.flag}/>
+              <Map lat={covidItem["geometry"]["y"]} lng={covidItem["geometry"]["x"]} name={info.name.common} flag={info.flags.svg}/>
             ) : (
               <div></div>
             )

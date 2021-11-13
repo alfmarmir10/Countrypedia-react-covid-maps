@@ -7,9 +7,9 @@ function Badge(props) {
   const { name } = props;
   return (
     <Link className="badge font-weight-bold font-size-sm color-white" to={{
-        pathname: `/Details/${name}`
+        pathname: `/Details/${name.common}`
       }}
-    >{name}</Link>
+    >{name.common}</Link>
   )
 }
 
